@@ -2,21 +2,20 @@ local M = {}
 
 
 function M.setup()
-  -- Indicate first time installation
   local packer_bootstrap = false
 
   -- packer.nvim configuration
-	local conf = {
-		profile = {
-			enable = true,
-			threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
-		},
-		display = {
-			open_fn = function()
-			 return require("packer.util").float { border = "rounded" }
-			end,
-		},
-	}
+  local conf = {
+    profile = {
+      enable = true,
+      threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
+    },
+    display = {
+      open_fn = function()
+       return require("packer.util").float { border = "rounded" }
+      end,
+    },
+  }
 
   -- Check if packer.nvim is installed
   -- Run PackerCompile if there are changes in this file
@@ -40,7 +39,7 @@ function M.setup()
   -- Plugins
   local function plugins(use)
     use { "wbthomason/packer.nvim" }
-		
+    
     -- Load only when require
     use { "nvim-lua/plenary.nvim", module = "plenary" }
 
@@ -80,7 +79,7 @@ function M.setup()
         require("lightspeed").setup {}
       end,
     }
-		
+    
     -- Markdown
     use {
       "iamcco/markdown-preview.nvim",
@@ -124,45 +123,28 @@ function M.setup()
         require("config.alpha").setup()
       end,
     }
-		
+    
     -- Git
     use {
       "TimUntersberger/neogit",
-			cmd = "Neogit",
+      cmd = "Neogit",
       requires = "nvim-lua/plenary.nvim",
       config = function()
         require("config.neogit").setup()
       end,
     }
-		
-		-- You don't need to install this if you already have fzf installed
-		use { "junegunn/fzf", run = "./install --all" }
-		use { "junegunn/fzf.vim" }
+    
+    -- You don't need to install this if you already have fzf installed
+    use { "junegunn/fzf", run = "./install --all" }
+    use { "junegunn/fzf.vim" }
 
-		use {
-		 "ibhagwan/fzf-lua",
-			requires = { "kyazdani42/nvim-web-devicons" },
-		}
+    use {
+     "ibhagwan/fzf-lua",
+      requires = { "kyazdani42/nvim-web-devicons" },
+    }
 
-		-- Better Netrw
-		use {"tpope/vim-vinegar"}
-
-		-- Completion
-		use {
-			"ms-jpq/coq_nvim",
-			branch = "coq",
-			event = "InsertEnter",
-			opt = true,
-			run = ":COQdeps",
-			config = function()
-				require("config.coq").setup()
-			end,
-			requires = {
-				{ "ms-jpq/coq.artifacts", branch = "artifacts" },
-				{ "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" },
-			},
-			disable = false,
-		}
+    -- Better Netrw
+    use {"tpope/vim-vinegar"}
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
