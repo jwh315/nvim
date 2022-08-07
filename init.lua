@@ -1,1 +1,1 @@
-../../../Documents/neovim-for-beginner/init.lua
+require("plugins").setup()
