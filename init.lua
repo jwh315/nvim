@@ -1,0 +1,1 @@
+../../../Documents/neovim-for-beginner/init.lua
