@@ -7,7 +7,6 @@ api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 
---opt.listchars = { eol = '¬', tab = '>·', trail = '~', extends = '>', precedes - '<', space = '.' }
 opt.listchars = { eol = '¬', space = '.' }
 opt.list = true
 opt.tabstop = 4

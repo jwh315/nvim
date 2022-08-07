@@ -43,6 +43,13 @@ function M.setup()
     -- Load only when require
     use { "nvim-lua/plenary.nvim", module = "plenary" }
 
+    --Telescope
+    use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      requires = {
+        {'nvim-lua/plenary.nvim'}
+      }
+    }
     -- Better icons
     use {
       "kyazdani42/nvim-web-devicons",
@@ -108,7 +115,7 @@ function M.setup()
     }
 
     -- WhichKey
-    use {
+     use {
         "folke/which-key.nvim",
         event = "VimEnter",
         config = function()
@@ -134,15 +141,6 @@ function M.setup()
       end,
     }
     
-    -- You don't need to install this if you already have fzf installed
-    use { "junegunn/fzf", run = "./install --all" }
-    use { "junegunn/fzf.vim" }
-
-    use {
-     "ibhagwan/fzf-lua",
-      requires = { "kyazdani42/nvim-web-devicons" },
-    }
-
     -- Better Netrw
     use {"tpope/vim-vinegar"}
 
