@@ -1,3 +1,3 @@
-lua require("plugins").setup()
+lua require("plugins")
 
 set noswapfile
