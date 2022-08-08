@@ -106,9 +106,9 @@ return packer.startup(function(use)
 
   -- Colorscheme
   use {
-    "sainnhe/everforest",
+    "sainnhe/gruvbox-material",
     config = function()
-      vim.cmd "colorscheme everforest"
+      vim.cmd "colorscheme gruvbox-material"
     end,
   }
 
