@@ -33,6 +33,7 @@ opt.wildignore:append "**/.git/*"
 opt.wildignore:append "**/build/*"
 opt.wildignore:append "**/bin/*"
 opt.wildignore:append "**/obj/*"
+opt.scrolloff = 8
 
 -- Highlight on yank
 vim.cmd [[
