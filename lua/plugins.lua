@@ -43,11 +43,14 @@ function M.setup()
     -- Load only when require
     use { "nvim-lua/plenary.nvim", module = "plenary" }
 
+    use { "BurntSushi/ripgrep" }
+    
     --Telescope
     use {
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
       requires = {
-        {'nvim-lua/plenary.nvim'}
+        {'nvim-lua/plenary.nvim'},
+        {'BurntSushi/ripgrep'}
       }
     }
     -- Better icons
@@ -121,6 +124,16 @@ function M.setup()
         config = function()
             require("config.whichkey").setup()
         end,
+    }
+
+    -- Buffer line
+    use {
+      "akinsho/nvim-bufferline.lua",
+      event = "BufReadPre",
+      wants = "nvim-web-devicons",
+      config = function()
+        require("config.bufferline").setup()
+      end,
     }
 
     -- Startup screen
