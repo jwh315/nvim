@@ -1,4 +1,4 @@
-lua require("plugins")
+require("plugins")
 
 vim.cmd "set noswapfile"
 
