@@ -42,6 +42,7 @@ function M.setup()
       name = "Find File",
       f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Files" },
       g = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Live Grep" },
+      b = { "<cmd>lua require('telescope.builtin').buffers()<cr>", "Buffer Search"}
     },
 
     g = {
