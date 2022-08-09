@@ -1,5 +1,5 @@
 local fn = vim.fn
---
+
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -41,11 +41,11 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-
   use { "wbthomason/packer.nvim" }
   
   -- Load only when require
   use { "nvim-lua/plenary.nvim", module = "plenary" }
+  use "nvim-lua/popup.nvim"
 
   use { "BurntSushi/ripgrep" }
   
@@ -57,6 +57,7 @@ return packer.startup(function(use)
       {'BurntSushi/ripgrep'}
     }
   }
+
   -- Better icons
   use {
     "kyazdani42/nvim-web-devicons",
@@ -160,6 +161,24 @@ return packer.startup(function(use)
   
   -- Better Netrw
   use {"tpope/vim-vinegar"}
+
+  -- cmp plugins
+  use {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require("config.cmp").setup()
+    end,
+    requires = {
+      "hrsh7th/cmp-buffer", -- buffer completions
+      "hrsh7th/cmp-path", -- path completions
+      "hrsh7th/cmp-cmdline", -- cmdline completions
+      "saadparwaiz1/cmp_luasnip", -- snippet completions
+    }
+  }
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
